@@ -46,10 +46,11 @@
                         <td> 1</td>
                        
                         <td>
-                            <img src="#" alt="Alternate Text" />
+                                 <img src="<%# Eval("ImageFilePath") %>" alt="Alternate Text" />
+
                         </td>
                          <td>
-                            <h2>name</h2>
+                             <p><%# Eval("Name") %></p>
                         </td>
 
 
