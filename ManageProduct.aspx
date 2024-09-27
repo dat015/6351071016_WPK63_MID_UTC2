@@ -32,7 +32,6 @@
         }
     </style>
 
-        <a href="../Content/AddProduct.aspx">Add product new</a>
         <table>
             <tr>
                 <td>No </td>
