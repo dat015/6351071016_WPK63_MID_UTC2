@@ -1,0 +1,124 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultPageMaster.master.cs" Inherits="de1.DefaultPageMaster" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thành Đạt_6351071016_WP001</title>
+    <!-- Sinh viên ghi chú thông tin như cú pháp yêu cầu trong thẻ title-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center; /* Căn giữa nội dung */
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto; /* Đảm bảo ảnh giữ tỷ lệ */
+        }
+    </style>
+    <form id="form1" runat="server">    
+        <div id="container">
+            <div id="menu">
+
+                <asp:Menu ID="navigation" Orientation="Horizontal" StaticDisplayLevels="2" runat="server" DataSourceID="SiteMapDataSource1">
+                </asp:Menu>
+
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+
+            </div>
+
+            <div id="banner">
+                <h2>Nguyễn Thành Đạt_6351071016_WP001</h2>
+                <!-- Sinh viên ghi chú thông tin như cú pháp yêu cầu trong thẻ title-->
+            </div>
+
+            <div id="breadcrumb">
+
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                </asp:SiteMapPath>
+
+            </div>
+
+            <div id="main">
+                <div id="sidebar">
+
+                    <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1">
+                    </asp:TreeView>
+                    <hr />
+                    <h3>Course Category Avaiable</h3>
+                    <asp:DataList ID="dlCourses" runat="server" RepeatLayout="Table">
+                        <ItemTemplate>
+                            <li>
+
+                                <asp:LinkButton ID="btnCategory" runat="server" CommandArgument='<%# Eval("CatName") %>'
+                                    OnClick="btnCategory_Click">
+ <%# Eval("CatName") %>  ( <%# Eval("Count") %> )
+                                </asp:LinkButton>
+                            </li>
+                        </ItemTemplate>
+
+
+                    </asp:DataList>
+
+                </div>
+
+                <div id="content">
+                    <asp:ContentPlaceHolder ID="detailContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <asp:Repeater ID="rptCourse" runat="server">
+                        <ItemTemplate>
+                            <div class="product-item" style="border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 200px;">
+                                <h3><%# Eval("Name") %></h3>
+                                <div class="product-image">
+                                    <img src="<%# Eval("ImageFilePath") %>" style="width: 100%; height: auto;" />
+                                </div>
+
+                                <p><strong><%# Eval("Duration") %> mins</strong></p>
+
+                                <asp:LinkButton ID="detail" runat="server" CommandArgument='<%# Eval("Id") %>'
+                                    OnClick="detailClick">               Detail                  </asp:LinkButton>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <div id="footer">
+                <p>© 2024 Company Name. All Rights Reserved.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
