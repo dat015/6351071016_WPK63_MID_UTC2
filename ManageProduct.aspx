@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultPageMaster.Master" AutoEventWireup="true" CodeBehind="ManageProduct.aspx.cs" Inherits="de1.ManageProduct" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultPageMaster.Master" AutoEventWireup="true" CodeBehind="ManageProduct.aspx.cs" Inherits="de1.ManageProduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -30,8 +30,32 @@
             text-decoration: none;
             cursor: pointer;
         }
-    </style>
+       
 
+    </style>
+     <div>
+
+            <label for="txtCourseName">Course name</label>
+            <asp:TextBox ID="txtCourseName" runat="server" Required="true"></asp:TextBox><br /><br />
+
+            <label for="txtDuration">Duration</label>
+            <asp:TextBox ID="txtDuration" runat="server" Required="true"></asp:TextBox><br /><br />
+
+            <label for="ddlCategory">Category</label>
+            <asp:DropDownList ID="ddlCategory" runat="server">
+                <asp:ListItem Value="Programming for Devs">some thing</asp:ListItem>
+              
+            </asp:DropDownList><br /><br />
+
+            <label for="txtDescription">Description</label>
+            <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="4" Required="true"></asp:TextBox><br /><br />
+
+            <label for="fuPicture">Picture</label>
+            <asp:FileUpload ID="fuPicture" runat="server" /><br />
+            <span>Chưa có tệp nào được chọn</span><br /><br />
+
+            <asp:Button ID="btnAdd" runat="server" Text="add"  />
+        </div>
         <table>
             <tr>
                 <td>No </td>
@@ -43,14 +67,15 @@
             <asp:Repeater ID="rptCourse" runat="server" >
                 <ItemTemplate>
                     <tr>
-                        <td> 1</td>
-                       
                         <td>
-                                 <img src="<%# Eval("ImageFilePath") %>" alt="Alternate Text" />
 
                         </td>
+                       
+                        <td>
+                            <img src="<%# Eval("ImageFilePath") %>" alt="Alternate Text" />
+                        </td>
                          <td>
-                             <p><%# Eval("Name") %></p>
+                            <p><%# Eval("Name") %></p>
                         </td>
 
 
